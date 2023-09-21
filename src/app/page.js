@@ -1,10 +1,7 @@
 'use client'
-
-// import { DateTime } from 'luxon'
 import { useMemo } from 'react'
 import movies from './MOCK_DATA.json'
 import BasicTable from './components/BasicTable/page'
-import Table from './components/Table/page'
 
 function Home() {
   const data = useMemo(() => movies, [])

@@ -14,7 +14,6 @@ export default function BasicTable({ data, columns }) {
 
   const [sorting, setSorting] = useState([])
   const [filtering, setFiltering] = useState('')
-
   const table = useReactTable({
     data,
     columns,
@@ -29,6 +28,10 @@ export default function BasicTable({ data, columns }) {
     onSortingChange: setSorting,
     onGlobalFilterChange: setFiltering,
   })
+
+  console.log('====================================');
+  console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>: ', table.getFilteredRowModel().rows.length);
+  console.log('====================================');
 
   return (
     <div className=' container m-auto'>
@@ -87,7 +90,11 @@ export default function BasicTable({ data, columns }) {
                 <button
                   disabled={!table.getCanPreviousPage()}
                   onClick={() => table.previousPage()}
-                  className="flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</button>
+                  className="flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                  <svg class="w-3 h-3 text-black dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13" />
+                  </svg>
+                </button>
               </li>
               <li>
                 <button
@@ -119,18 +126,25 @@ export default function BasicTable({ data, columns }) {
                 <button
                   disabled={!table.getCanNextPage()}
                   onClick={() => table.nextPage()}
-                  className="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</button>
+                  className="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                  <svg class="w-3 h-3 text-black dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1" />
+                  </svg>
+                </button>
               </li>
             </ul>
           </nav>
           <select
+          className='text-black dark:text-white dark:bg-black bg-white'
             value={table.getState().pagination.pageSize}
             onChange={e => {
               table.setPageSize(Number(e.target.value))
             }}
           >
             {[10, 20, 30, 40, 50].map(pageSize => (
-              <option key={pageSize} value={pageSize}>
+              <option 
+              className=' hover:text-purple-700'
+              key={pageSize} value={pageSize}>
                 Show {pageSize}
               </option>
             ))}
