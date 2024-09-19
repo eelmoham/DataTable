@@ -42,9 +42,9 @@ export default function BasicTable({ data, columns }) {
         placeholder='Search'
         onChange={e => setFiltering(e.target.value)}
       />
-      <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table class="w-full text-sm text-left text-blue-100 dark:text-blue-100">
-          <thead class="text-xs text-white uppercase bg-blue-600 dark:bg-purple-500 dark:text-white">
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table className="w-full text-sm text-left text-blue-100 dark:text-blue-100">
+          <thead className="text-xs text-white uppercase bg-blue-600 dark:bg-purple-500 dark:text-white">
             {table.getHeaderGroups().map(headerGroup => (
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map(header => (
@@ -73,9 +73,9 @@ export default function BasicTable({ data, columns }) {
 
           <tbody>
             {table.getRowModel().rows.map(row => (
-              <tr key={row.id} class="bg-blue-500 border-b border-blue-400">
+              <tr key={row.id} className="bg-blue-500 border-b border-blue-400">
                 {row.getVisibleCells().map(cell => (
-                  <td key={cell.id} class="px-6 py-4 text-center">
+                  <td key={cell.id} className="px-6 py-4 text-center">
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </td>
                 ))}
@@ -91,8 +91,8 @@ export default function BasicTable({ data, columns }) {
                   disabled={!table.getCanPreviousPage()}
                   onClick={() => table.previousPage()}
                   className="flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                  <svg class="w-3 h-3 text-black dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13" />
+                  <svg className="w-3 h-3 text-black dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
+                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13" />
                   </svg>
                 </button>
               </li>
@@ -127,8 +127,8 @@ export default function BasicTable({ data, columns }) {
                   disabled={!table.getCanNextPage()}
                   onClick={() => table.nextPage()}
                   className="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                  <svg class="w-3 h-3 text-black dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1" />
+                  <svg className="w-3 h-3 text-black dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
+                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1" />
                   </svg>
                 </button>
               </li>
